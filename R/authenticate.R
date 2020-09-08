@@ -42,5 +42,5 @@ get_spotify_access_token <- function(client_id = Sys.getenv('SPOTIFY_CLIENT_ID')
 get_spotify_authorization_code <- function(client_id = Sys.getenv("SPOTIFY_CLIENT_ID"), client_secret = Sys.getenv("SPOTIFY_CLIENT_SECRET"), scope = spotifyr::scopes) {
     endpoint <- oauth_endpoint(authorize = 'https://accounts.spotify.com/authorize', access = 'https://accounts.spotify.com/api/token')
     app <- oauth_app('spotifyr', client_id, client_secret)
-    oauth2.0_token(endpoint = endpoint, app = app, scope = scope)
+    oauth2.0_token(endpoint = endpoint, app = app, scope = scope, use_oob = TRUE, cache = "spotify.httr-oauth", oob_value = "http://127.0.0.1:1410")
 }
